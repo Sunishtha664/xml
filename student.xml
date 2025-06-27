@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<students>
+    <student roll="101">
+        <name>Sita</name>
+        <age>20</age>
+        <department>Computer Science</department>
+    </student>
+    <student roll="102">
+        <name>Gita</name>
+        <age>21</age>
+        <department>Information Technology</department>
+    </student>
+</students>

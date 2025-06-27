@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Parse XML</title>
+</head>
+<body>
+    <h2>Student Info from XML</h2>
+    <div id="output"></div>
+
+    <script>
+        // Load XML file using fetch
+        fetch('student.xml')
+            .then(response => response.text())
+            .then(data => {
+                // Parse XML using DOMParser
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(data, "text/xml");
+
+                const students = xml.getElementsByTagName("student");
+                let output = "";
+
+                for (let i = 0; i < students.length; i++) {
+                    const student = students[i];
+                    const roll = student.getAttribute("roll");
+                    const name = student.getElementsByTagName("name")[0].textContent;
+                    const age = student.getElementsByTagName("age")[0].textContent;
+                    const department = student.getElementsByTagName("department")[0].textContent;
+
+                    output += `<p><strong>Roll:</strong> ${roll}<br>`;
+                    output += `<strong>Name:</strong> ${name}<br>`;
+                    output += `<strong>Age:</strong> ${age}<br>`;
+                    output += `<strong>Department:</strong> ${department}</p><hr>`;
+                }
+
+                document.getElementById("output").innerHTML = output;
+            })
+            .catch(error => console.error("Error loading XML:", error));
+    </script>
+</body>
+</html>
