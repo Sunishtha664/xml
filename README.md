@@ -1,2 +1,3 @@
 # xml
-xml basics
+xml basics, XML Schema, DTD, DOM using javascript
+
